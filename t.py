@@ -1,17 +1,12 @@
-def FirstFactorial(num): 
+from pprint import pprint
+from collections import OrderedDict
+import json
+class JSONObject:
+	def __init__(self, d):
+		self.__dict__ = d
 
-  # code goes here
-  facto =1
-  if (num>1):
-     facto=facto*FirstFactorial(num)
-     num=num-1
-  else:
-    return facto
-  
-  
- 
-    
-    
-# keep this function call here  
-# to see how to enter arguments in Python scroll down
-print (FirstFactorial(8) ) 
+
+dat1 = '{"t":123,"ter":{"re":789,"wer":{"kan":234,"ass":897}},"qwer":2345,"gte":567}'
+dat = "{'t':123,'ter':{'re':789,'wer':{'kan':234,'ass':897}},'qwer':2345,'tre':567}"
+data = json.loads(dat,object_hook=JSONObject)
+print(data.ter.wer.ass)
